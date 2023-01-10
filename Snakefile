@@ -6,7 +6,7 @@ genome_urls = {
 
 rule all:
     input:
-        expand("genomes/{accession}.fna.gz", accession=genome_urls),
+        "compare.mat.matrix.png"
 
 
 rule download_genome:

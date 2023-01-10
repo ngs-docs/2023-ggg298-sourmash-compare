@@ -1,0 +1,9 @@
+name: spacegraphcats
+channels:
+    - conda-forge
+    - bioconda
+    - defaults
+dependencies:
+    - snakemake-minimal=7.19.1
+    - sourmash>=4.6.1,<5
+    - curl
