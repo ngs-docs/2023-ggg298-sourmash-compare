@@ -1,9 +1,10 @@
-name: spacegraphcats
+name: env
 channels:
-    - conda-forge
     - bioconda
+    - conda-forge
     - defaults
 dependencies:
     - snakemake-minimal=7.19.1
-    - sourmash>=4.6.1,<5
+    - sourmash>=4.6,<5
     - curl
+ 
