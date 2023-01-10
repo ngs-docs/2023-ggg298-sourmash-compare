@@ -1,0 +1,9 @@
+.snakemake
+*~
+compare.mat
+compare.mat.dendro.png
+compare.mat.hist.png
+compare.mat.labels.txt
+compare.mat.matrix.png
+genomes/
+sketches/
