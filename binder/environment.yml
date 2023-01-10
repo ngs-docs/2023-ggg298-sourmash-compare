@@ -1,0 +1,10 @@
+name: env
+channels:
+    - bioconda
+    - conda-forge
+    - defaults
+dependencies:
+    - snakemake-minimal=7.19.1
+    - sourmash>=4.6,<5
+    - curl
+    - python>=3.8
