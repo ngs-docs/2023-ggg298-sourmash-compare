@@ -20,4 +20,4 @@ The required software is listed in [binder/environment.yml](https://github.com/n
 
 ## Workflow diagram
 
-![doc/workflow-dag.png]
+![workflow diagram](doc/workflow-dag.png)
