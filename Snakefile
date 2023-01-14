@@ -8,6 +8,10 @@ rule sketch_genomes:
     """
 
 rule compare_genomes:
+    input:
+        "GCF_000017325.1.fna.gz.sig",
+        "GCF_000020225.1.fna.gz.sig",
+        "GCF_000021665.1.fna.gz.sig"
     output:
         "compare.mat"
     shell: """
@@ -18,6 +22,8 @@ rule compare_genomes:
 
 rule plot_comparison:
     message: "compare all input genomes using sourmash"
+    input:
+        "compare.mat"
     output:
         "compare.mat.matrix.png"
     shell: """
