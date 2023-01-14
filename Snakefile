@@ -11,7 +11,8 @@ rule compare_genomes:
     input:
         "GCF_000017325.1.fna.gz.sig",
         "GCF_000020225.1.fna.gz.sig",
-        "GCF_000021665.1.fna.gz.sig"
+        "GCF_000021665.1.fna.gz.sig",
+        "does-not-exist.sig"
     output:
         "compare.mat"
     shell: """
