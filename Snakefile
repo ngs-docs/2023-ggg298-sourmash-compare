@@ -5,8 +5,8 @@ rule sketch_genomes:
 
 rule compare_genomes:
     shell: """
-        sourmash compare GCF_000021665.1.sig \
-            GCF_000017325.1.sig GCF_000020225.1.sig \
+        sourmash compare GCF_000021665.1.fna.gz.sig \
+            GCF_000017325.1.fna.gz.sig GCF_000020225.1.fna.gz.sig \
             -o compare.mat
     """
 
