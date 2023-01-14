@@ -1,5 +1,7 @@
 rule compare_genomes:
     message: "compare all input genomes using sourmash"
+    output:
+        "compare.mat.matrix.png"
     shell: """
         sourmash sketch dna -p k=31 genomes/*.fna.gz --name-from-first
 
