@@ -15,7 +15,7 @@ rule compare_genomes:
     output:
         "compare.mat"
     shell: """
-        sourmash compare {input} GCF_000021665.1.sig -o {output}
+        sourmash compare {input} -o {output}
     """
 
 rule plot_comparison:
@@ -27,3 +27,4 @@ rule plot_comparison:
     shell: """
         sourmash plot {input}
     """
+
