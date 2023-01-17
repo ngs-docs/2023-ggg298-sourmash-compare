@@ -1,3 +1,7 @@
+ACCESSIONS = ["GCF_000017325.1",
+              "GCF_000020225.1",
+              "GCF_000021665.1"]
+
 rule sketch_genome:
     input:
         "genomes/{accession}.fna.gz",
@@ -9,9 +13,7 @@ rule sketch_genome:
 
 rule compare_genomes:
     input:
-        "GCF_000017325.1.fna.gz.sig",
-        "GCF_000020225.1.fna.gz.sig",
-        "GCF_000021665.1.fna.gz.sig"
+        expand("{acc}.fna.gz.sig", acc=ACCESSIONS),
     output:
         "compare.mat"
     shell: """
