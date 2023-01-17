@@ -1,31 +1,10 @@
-rule sketch_genomes_1:
+rule sketch_genome:
     input:
-        "genomes/GCF_000017325.1.fna.gz",
+        "genomes/{accession}.fna.gz",
     output:
-        "GCF_000017325.1.fna.gz.sig",
+        "{accession}.fna.gz.sig",
     shell: """
-        sourmash sketch dna -p k=31 {input} \
-            --name-from-first
-    """
-
-rule sketch_genomes_2:
-    input:
-        "genomes/GCF_000020225.1.fna.gz",
-    output:
-        "GCF_000020225.1.fna.gz.sig",
-    shell: """
-        sourmash sketch dna -p k=31 {input} \
-            --name-from-first
-    """
-
-rule sketch_genomes_3:
-    input:
-        "genomes/GCF_000021665.1.fna.gz",
-    output:
-        "GCF_000021665.1.fna.gz.sig"
-    shell: """
-        sourmash sketch dna -p k=31 {input} \
-            --name-from-first
+        sourmash sketch dna -p k=31 {input} --name-from-first
     """
 
 rule compare_genomes:
@@ -48,4 +27,3 @@ rule plot_comparison:
     shell: """
         sourmash plot {input}
     """
-
