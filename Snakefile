@@ -1,8 +1,3 @@
-ACCESSIONS = ["GCF_000017325.1",
-              "GCF_000020225.1",
-              "GCF_000021665.1",
-              "GCF_008423265.1"]
-
 rule sketch_genome:
     input:
         "genomes/{accession}.fna.gz",
