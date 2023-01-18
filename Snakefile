@@ -1,6 +1,11 @@
 ACCESSIONS = ["GCF_000017325.1",
               "GCF_000020225.1",
-              "GCF_000021665.1"]
+              "GCF_000021665.1",
+              "GCF_008423265.1"]
+
+rule all:
+    input:
+        "compare.mat.matrix.png"
 
 rule sketch_genome:
     input:
