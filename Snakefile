@@ -14,7 +14,10 @@ rule sketch_genome:
 
 rule compare_genomes:
     input:
-        expand("{acc}.fna.gz.sig", acc=ACCESSIONS),
+        "GCF_000017325.1.fna.gz.sig",
+        "GCF_000020225.1.fna.gz.sig",
+        "GCF_000021665.1.fna.gz.sig",
+        "GCF_008423265.1.fna.gz.sig",
     output:
         "compare.mat"
     shell: """
