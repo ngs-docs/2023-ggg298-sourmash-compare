@@ -1,3 +1,5 @@
+# Q: what happens if you forget to add --use-conda?
+
 genome_urls = {
     'GCF_000021665.1': 'https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/021/665/GCF_000021665.1_ASM2166v1/GCF_000021665.1_ASM2166v1_genomic.fna.gz',
     'GCF_000017325.1': 'https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/017/325/GCF_000017325.1_ASM1732v1/GCF_000017325.1_ASM1732v1_genomic.fna.gz',
@@ -17,6 +19,7 @@ rule download_genome:
         "genomes/{acc}.fna.gz",
     params:
         url = lambda w: genome_urls[w.acc]
+    # Q: why no conda: block?
     shell: """
         curl -JL {params.url} -o {output}
     """
@@ -27,6 +30,7 @@ rule prepare_genome:
         genome_file = "genomes/{acc}.fna.gz"
     output:
         sketch = "sketches/{acc}.sig"
+    conda: "envs/sourmash.yml"
     shell: """
         sourmash sketch dna -p k=31 {input.genome_file} -o {output.sketch} \
             --name-from-first
@@ -39,6 +43,7 @@ rule compare_genomes:
     output:
         matrix = "compare.mat",
         csv = "compare.mat.csv",
+    conda: "envs/sourmash.yml"
     shell: """
         sourmash compare {input.sketches} -o {output.matrix} --csv {output.csv}
     """
@@ -49,6 +54,7 @@ rule plot_comparison:
         matrix = "compare.mat"
     output:
         "compare.mat.matrix.png"
+    conda: "envs/sourmash.yml"
     shell: """
         sourmash plot {input} --labels
     """
