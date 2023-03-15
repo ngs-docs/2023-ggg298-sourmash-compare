@@ -1,13 +1,8 @@
-name: env
 channels:
     - conda-forge
     - bioconda
     - defaults
 dependencies:
-    - python>=3.8
-    - snakemake-minimal>=7.19.1,<8
-    - sourmash>=4.6,<5
-    - curl
     - r-ggplot2
     - r-pheatmap
     - r-viridis

@@ -6,6 +6,12 @@ A simple snakemake workflow comparing three genomes.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ngs-docs/2023-ggg298-sourmash-compare/stable?urlpath=rstudio)
 
+Run it like so:
+
+```
+snakemake -j 4 --use-conda
+```
+
 ## Information and links
 
 This repo provides a
