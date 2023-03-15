@@ -6,7 +6,8 @@ genome_urls = {
 
 rule all:
     input:
-        "compare.mat.matrix.png"
+        "compare.mat.matrix.png",
+        "compare.rstats.png",
 
 
 rule download_genome:
@@ -35,9 +36,10 @@ rule compare_genomes:
     input:
         sketches = expand("sketches/{acc}.sig", acc=genome_urls)
     output:
-        matrix = "compare.mat"
+        matrix = "compare.mat",
+        csv = "compare.mat.csv",
     shell: """
-        sourmash compare {input.sketches} -o {output.matrix}
+        sourmash compare {input.sketches} -o {output.matrix} --csv {output.csv}
     """
 
 rule plot_comparison:
@@ -48,4 +50,14 @@ rule plot_comparison:
         "compare.mat.matrix.png"
     shell: """
         sourmash plot {input} --labels
+    """
+
+rule plot_comparison_rstats:
+    input:
+        matrix = "compare.mat.csv",
+    output:
+        "compare.rstats.png"
+    conda: "envs/r.yml"
+    shell: """
+        Rscript plot-compare.R {input} {output}
     """
