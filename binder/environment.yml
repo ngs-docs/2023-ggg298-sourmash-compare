@@ -4,8 +4,12 @@ channels:
     - bioconda
     - defaults
 dependencies:
-    - snakemake-minimal=7.19.1
+    - python>=3.8
+    - snakemake-minimal>=7.19.1,<8
     - sourmash>=4.6,<5
     - curl
-    - python>=3.8
-    - r-base
+    - r-ggplot2
+    - r-pheatmap
+    - r-viridis
+    - r-ggplotify
+    - r-rmarkdown
