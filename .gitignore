@@ -7,3 +7,8 @@ compare.mat.labels.txt
 compare.mat.matrix.png
 genomes/
 sketches/
+*.png
+*.sig
+
+show-compare.html
+compare.mat.csv
