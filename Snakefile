@@ -8,6 +8,7 @@ rule all:
     input:
         "compare.mat.matrix.png",
         "compare.rstats.png",
+        "show-compare.html",
 
 
 rule download_genome:
@@ -60,4 +61,15 @@ rule plot_comparison_rstats:
     conda: "envs/r.yml"
     shell: """
         Rscript plot-compare.R {input} {output}
+    """
+
+rule knit_rmarkdown:
+    input:
+        Rmd = "show-compare.Rmd",
+        matrix = "compare.mat.csv", # Q: why do we need this?
+    output:
+        "show-compare.html"
+    conda: "envs/r.yml"
+    shell: """
+        Rscript knit-Rmd.R {input.Rmd} html_document
     """

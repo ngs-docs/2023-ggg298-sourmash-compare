@@ -7,3 +7,4 @@ dependencies:
     - r-pheatmap
     - r-viridis
     - r-ggplotify
+    - r-rmarkdown
